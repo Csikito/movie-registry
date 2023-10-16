@@ -1,13 +1,51 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --bg-light: #f3f3f3;
+  --bg-dark: #596b7e;
+  --text-light: #f3f3f3;
+  --text-dark: #343a40;
+  /* button */
+  --btn-blue: #3490dc;
+  --btn-red: #e3342f;
+  --btn-green: #25c167;
+}
+
+@layer components {
+  .bg-light {
+    @apply bg-[--bg-light];
+  }
+  .bg-dark {
+    @apply bg-[--bg-dark];
+  }
+  .text-light {
+    @apply text-[--text-light];
+  }
+  .text-dark {
+    @apply text-[--text-dark];
+  }
+
+  .btn-blue {
+    @apply bg-[--btn-blue] text-[white] p-1 rounded-md m-1;
+  }
+  .btn-green {
+    @apply bg-[--btn-green] text-[white] p-1 rounded-md m-1;
+  }
+  .btn-red {
+    @apply bg-[--btn-red]  text-[white] p-1 rounded-md m-1;
+  }
+}
+
+body {
+  background-color: #282c34;
+  color: white;
+  text-align: center;
 }
