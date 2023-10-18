@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/movie-registry/static/css/main.501e2845.css",
+    "main.js": "/movie-registry/static/js/main.9f0f64ad.js",
+    "index.html": "/movie-registry/index.html",
+    "main.501e2845.css.map": "/movie-registry/static/css/main.501e2845.css.map",
+    "main.9f0f64ad.js.map": "/movie-registry/static/js/main.9f0f64ad.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.501e2845.css",
+    "static/js/main.9f0f64ad.js"
+  ]
+}
