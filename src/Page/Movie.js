@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import api from "../api/movieApi";
 
 const Movie = ({ movieData, setMovieData }) => {
   const { id } = useParams();
@@ -16,19 +17,26 @@ const Movie = ({ movieData, setMovieData }) => {
     setEditDescription(movie.description);
   }, [movie]);
 
-  const handleEdit = (id) => {
+  const handleEdit = async (id) => {
     const updateMovie = {
       title: editTitle,
       age: editAge,
       description: editDescription,
       id,
     };
-    const newMovieList = movieData.map((movie) =>
-      movie.id.toString() === id ? updateMovie : movie
-    );
 
-    setMovieData(newMovieList);
-    navigate("/");
+    const movie = movieData.find((movies) => movies.id.toString() === id);
+    try {
+      await api.put(`/movie/${movie._id}`, updateMovie);
+      const newMovieList = movieData.map((movie) =>
+        movie.id.toString() === id ? updateMovie : movie
+      );
+
+      setMovieData(newMovieList);
+      navigate("/");
+    } catch (e) {
+      console.log(e.message);
+    }
   };
   return (
     <main>
